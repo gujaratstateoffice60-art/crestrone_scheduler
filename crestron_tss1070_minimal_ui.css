@@ -1,0 +1,94 @@
+/*
+  Crestron TSS-1070
+  Minimal display:
+  - Show only live date and time
+  - Hide room name
+  - Hide Available/Reserved status
+  - Hide meeting details and timeline
+  - Hide scheduling controls
+  - Preserve configured background image
+*/
+
+/* Hide the room name and main scheduling interface */
+.room__container__room-details__name {
+    display: none !important;
+}
+
+.room__container__current-time * {
+    text-align: center !important;
+}
+
+/* Hide status information */
+.room__container__status,
+.room__container__status__title,
+.room__container__status__details,
+.room__container__status__countdown {
+    display: none !important;
+}
+
+/* Hide the timeline and meeting schedule */
+.timeline,
+.timeline__content,
+.timeline__content__event,
+.timeline__content__event__content,
+.timeline__content__now {
+    display: none !important;
+}
+
+/* Hide meeting information and scheduling controls */
+.room__container__actions,
+.room__container__action,
+.room__container__buttons,
+.room__container__button,
+.room__container__menu,
+.room__container__more,
+.room__container__create-meeting,
+.room__container__find-room {
+    display: none !important;
+}
+
+/* Hide the rest of the room interface */
+.room__container {
+    visibility: hidden !important;
+}
+
+/* Keep the live date and time visible 
+.room__container__current-time {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+} */
+
+/* Show live date and time at the top centre */
+.room__container__current-time {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    position: fixed !important;
+    top: 20px !important;
+    left: 50% !important;
+    right: auto !important;
+
+    transform: translateX(-50%) !important;
+
+    width: max-content !important;
+    max-width: 90vw !important;
+    text-align: center !important;
+
+    z-index: 9999 !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    padding: 5px 12px !important;
+}
+
+/* Preserve the background image */
+.room__image,
+.room__video {
+    filter: none !important;
+}
+
+/* Remove any overlay, if present */
+.room__container::after {
+    opacity: 0 !important;
+}
